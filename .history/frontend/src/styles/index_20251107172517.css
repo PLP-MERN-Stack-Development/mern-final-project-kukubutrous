@@ -1,0 +1,133 @@
+/* src/styles/index.css - Tailwind base + custom theme variables and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* root theme variables (easy to tweak) */
+:root{
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --primary: #0ea5e9; /* sky-500 */
+  --accent: #ec4899;  /* pink-500 */
+  --success: #10b981; /* green-500 */
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --radius: 14px;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html,body,#root { height: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: #0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Basic component classes used in pages */
+.input {
+  @apply w-full p-3 border rounded-lg bg-white;
+  border-color: rgba(15,23,42,0.06);
+  box-shadow: var(--shadow);
+}
+.box {
+  @apply p-3 rounded-lg bg-white border;
+  border-color: rgba(15,23,42,0.04);
+  box-shadow: var(--shadow);
+}
+.btn-gray {
+  @apply w-full py-3 rounded-lg text-sm font-semibold;
+  background: #e6e9ee;
+  color: #0f172a;
+  transition: transform .12s ease, box-shadow .12s;
+}
+.btn-gray:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2,6,23,0.06); }
+
+.btn-pink {
+  @apply w-full py-3 rounded-lg text-sm font-semibold;
+  background: linear-gradient(120deg,var(--accent), #fb7185);
+  color: white;
+  box-shadow: 0 8px 30px rgba(236,72,153,0.12);
+}
+.collapse-btn {
+  @apply w-full text-left font-semibold p-1;
+}
+
+/* option chips */
+.option {
+  @apply flex items-center gap-2 text-sm px-3 py-1 rounded-full bg-gray-50 border;
+  border-color: rgba(15,23,42,0.03);
+}
+
+/* Loading / error */
+.loading { color: var(--muted); }
+.error { color: var(--danger); }
+
+/* Cards / panels */
+.panel {
+  @apply bg-white rounded-xl p-4 shadow;
+  box-shadow: var(--shadow);
+}
+.panel-header { @apply flex items-center justify-between mb-3; }
+
+/* Stats */
+.stat-card {
+  @apply bg-white p-4 rounded-xl shadow flex flex-col;
+  box-shadow: var(--shadow);
+}
+.stat-title { @apply text-sm text-slate-500; }
+.stat-value { @apply text-2xl font-bold mt-2; }
+.stat-sub { @apply text-xs text-slate-400 mt-1 }
+
+/* Minimized chat button */
+.minimized-chat {
+  @apply px-4 py-2 rounded-full cursor-pointer text-white font-medium;
+  background: linear-gradient(90deg,var(--primary), #0284c7);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.08);
+}
+
+/* Chat window base styles (draggable + resizable targets) */
+.chat-window {
+  @apply bg-white rounded-xl shadow overflow-hidden;
+  width: 360px; max-width: 90vw; height: 420px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+/* Draggable handle */
+.chat-handle {
+  @apply p-3 cursor-move bg-gradient-to-r from-slate-50 to-white border-b;
+  border-color: rgba(15,23,42,0.04);
+}
+
+/* Resize grip (bottom-right) */
+.resize-grip {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  opacity: 0.6;
+  background: linear-gradient(135deg, rgba(2,6,23,0.08), rgba(2,6,23,0.02));
+  border-radius: 3px;
+}
+
+/* Message bubble tweaks (used by MessageBubble component) */
+.msg-mine { background: linear-gradient(90deg,var(--primary), #0369a1); color: white; }
+.msg-other { background: var(--card); border: 1px solid rgba(15,23,42,0.04); color: #0f172a }
+
+/* small helper */
+.truncate-1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* utility to make an element draggable by CSS fallback (JS handles actual drag) */
+.draggable { touch-action: none; user-select: none; }
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .chat-window { width: 100vw; height: 60vh; border-radius: 0; }
+  .minimized-chat { padding-left: 12px; padding-right: 12px; }
+}

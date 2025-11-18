@@ -1,0 +1,17 @@
+// frontend/src/pages/ChatPage.jsx
+import React from "react";
+import ChatSidebar from "../components/ChatSidebar.jsx";
+import { Outlet } from "react-router-dom";
+
+export default function ChatPage() {
+    return (
+        <div className="flex h-screen">
+            <ChatSidebar />
+            <div className="flex-1 bg-gray-50">
+                <Outlet />
+            </div>
+        </div>
+    );
+}
+
+

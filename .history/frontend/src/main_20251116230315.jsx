@@ -1,0 +1,25 @@
+// frontend/src/main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import App from "./App.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import { ChatProvider } from "./context/ChatContext.jsx";
+import "./styles/index.css"; 
+
+// root setup
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <AuthProvider>
+            <ChatProvider>
+                <Router>
+                    <App />
+                    <Toaster position="top-right" reverseOrder={false} />
+                </Router>
+            </ChatProvider>
+        </AuthProvider>
+    </React.StrictMode>
+);
+
+

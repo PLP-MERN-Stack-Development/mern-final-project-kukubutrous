@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body { @apply bg-gray-50 text-gray-800; }
+
+/* src/index.css */
+:root { --bg:#f6f7fb; --card:#fff; --muted:#6b7280; --accent:#2563eb; }
+
+body { margin:0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:#111827; }
+.page { padding:20px; min-height:100vh; }
+.center { display:flex; align-items:center; justify-content:center; height:100vh; }
+.card { background:var(--card); padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(16,24,40,0.06); width:100%; max-width:420px; }
+.form input { width:100%; padding:10px; margin-bottom:8px; border-radius:6px; border:1px solid #e5e7eb; }
+.form button { background:var(--accent); color:white; padding:10px 12px; border-radius:6px; border:none; cursor:pointer; }
+.muted { color:var(--muted); font-size:0.9rem; }
+.notice { margin-top:12px; padding:8px; background:#f0f9ff; border-radius:6px; color:#064e3b; }
+.notice.error { background:#fff1f2; color:#7f1d1d; }
+.header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.container-grid { display:grid; grid-template-columns: 1fr 320px; gap:16px; }
+.card h3 { margin-top:0; }
+.btn { background:var(--accent); color:white; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; }
+.btn.small { padding:6px 8px; font-size:.9rem; }
+.btn.danger, .btn.small.danger { background:#dc2626; }
+.list { list-style:none; padding:0; margin-top:12px; }
+.list-item { display:flex; justify-content:space-between; padding:10px; border:1px solid #e6e6e6; border-radius:6px; margin-bottom:8px; background:#fff; }
+.table { width:100%; border-collapse:collapse; }
+.table th, .table td { padding:8px; border-bottom:1px solid #eee; text-align:left; }
+.chat-window { display:flex; flex-direction:column; height:70vh; }
+.messages { flex:1; padding:12px; background:#fafafa; border-radius:6px; margin-bottom:8px; }
+.msg { margin-bottom:10px; max-width:80%; }
+.msg.mine { margin-left:auto; text-align:right; }
+.msg.other { margin-right:auto; text-align:left; }
+.msg-body { display:inline-block; padding:8px 12px; border-radius:12px; background:#e0e7ff; }
+.msg.mine .msg-body { background:#2563eb; color:#fff; }
+.msg-meta { font-size:0.75rem; color:var(--muted); margin-top:4px; }
+.chat-form { display:flex; gap:8px; }
+.chat-form input { flex:1; padding:10px; border-radius:6px; border:1px solid #e5e7eb; }

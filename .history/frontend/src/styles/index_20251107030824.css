@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS variables for bright-green theme */
+:root{
+  --brand-50: #f0fff5;
+  --brand-100: #dbffe8;
+  --brand-200: #b7ffd1;
+  --brand-300: #7efaa6;
+  --brand-400: #3ced6d;
+  --brand-500: #18c745;
+  --brand-600: #12a93a;
+  --brand-700: #0d852b;
+  --brand-800: #08681f;
+  --brand-900: #054b14;
+}
+
+/* Small UI flourishes */
+.btn-brand {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-2xl font-semibold shadow-md;
+  background: linear-gradient(90deg, var(--brand-400), var(--brand-500));
+  color: white;
+}
+.btn-brand-outline {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-2xl border-2 font-semibold;
+  border-color: var(--brand-500);
+  color: var(--brand-700);
+}
+.card {
+  @apply bg-white rounded-xl shadow p-4;
+}
