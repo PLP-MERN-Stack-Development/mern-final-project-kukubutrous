@@ -1,0 +1,21 @@
+# create .gitignore
+cat > .gitignore <<'EOF'
+node_modules/
+.env
+.DS_Store
+dist/
+build/
+.vscode/
+npm-debug.log
+yarn-error.log
+coverage/
+# Add frontend build if monorepo: frontend/node_modules, frontend/build etc.
+EOF
+echo "node_modules/
+.env
+frontend/node_modules/
+backend/node_modules/
+dist/
+build/
+.vscode/
+" >> .gitignore
